@@ -1,0 +1,30 @@
+#include <iostream>
+#include <stdio.h>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <iomanip>
+using namespace std;
+
+
+int main(){
+    int stepNum, modNum;
+    int gen_Numbers;
+    while(cin >> stepNum >> modNum){
+        gen_Numbers = 0;
+        bool vis[modNum] = {0};
+        bool bad = true;
+        for(int nIndex = 0; nIndex < modNum; nIndex++){
+            gen_Numbers = (gen_Numbers+stepNum) % modNum;
+            if(vis[gen_Numbers] == 1) {
+                bad = false;
+                break;
+            }
+            vis[gen_Numbers] = 1;
+        }
+        if(bad == true){
+            cout << setw(10) << stepNum << setw(10) << modNum<< "    " << "Good Choice\n\n";
+        }
+        else cout << setw(10) << stepNum << setw(10) << modNum<< "    " << "Bad Choice\n\n";
+        }
+}
